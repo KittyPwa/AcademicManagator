@@ -1,0 +1,2 @@
+C:\Users\Kitty Pawa\source\repos\AcademicManagator\AcademicManagator\obj\Debug\AcademicManagator.csprojResolveAssemblyReference.cache
+C:\Users\Kitty Pawa\source\repos\AcademicManagator\AcademicManagator\obj\Debug\AcademicManagator.csproj.CoreCompileInputs.cache
