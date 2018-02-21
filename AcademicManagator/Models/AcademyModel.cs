@@ -5,11 +5,9 @@ using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-
-
 namespace AcademicManagator.Models
 {
-    public class AcademieModel
+    public class AcademyModel
     {
         [Required]
         [DisplayName("l'id")]
