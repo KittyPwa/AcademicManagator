@@ -11,6 +11,7 @@ namespace AcademicManagator.Models
 {
     public class AcademyModel
     {
+
         [Required]
         [DisplayName("l'id")]
         public System.Guid Id { get; set; }

@@ -1,0 +1,17 @@
+﻿@model ICollection<AcademyModel>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div>
+    <table>
+        <tr>
+            <th>@Html.LabelFor(model => model.First().Id)</th>
+            <th>@Html.LabelFor(model => model.First().Name)</th>
+        </tr>
+        
+    </table>
+
+
+
