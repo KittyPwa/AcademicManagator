@@ -1,33 +1,30 @@
-﻿@model IEnumerable<AcademyModel>
+﻿@model AcademyModel
+
+@{Html.BeginForm("Create", "Academy", FormMethod.Post);}
+
 
 @{
     ViewBag.Title = "Create";
 }
 
-<div>
-    <table>
-        <tr>
-            <th>@Html.LabelFor(model => model.First().Id)</th>
-            <th>@Html.LabelFor(model => model.First().Name)</th>
-            <th>@Html.LabelFor(model => model.First().Establishments)</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
+<h2>Creation de Formulaire</h2>
+<!--Date et nom-->
 
-                @foreach (var Estab in item.Establishments)
-                {
-                    <td>
-                        @Estab.Name
-                    </td>
-                }
-            </tr>
-        }
-    </table>
-</div>
+@Html.HiddenFor(model => model.Id)
+
+<!--Nom-->
+<p>
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name)
+    @Html.ValidationMessageFor(m => m.Name)
+</p>
+
+<p>
+    @Html.LabelFor(m => m.Establishments)
+    @Html.TextBoxFor(m => m.Establishments)
+    @Html.ValidationMessageFor(m => m.Establishments)
+</p>
+
+<button type="submit">Soumettre</button>
+
+@{Html.EndForm();}
