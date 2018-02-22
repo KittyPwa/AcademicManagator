@@ -1,4 +1,4 @@
-﻿@model ICollection<AcademyModel>
+﻿@model IEnumerable<AcademyModel>
 
 @{
     ViewBag.Title = "Create";
@@ -9,9 +9,25 @@
         <tr>
             <th>@Html.LabelFor(model => model.First().Id)</th>
             <th>@Html.LabelFor(model => model.First().Name)</th>
+            <th>@Html.LabelFor(model => model.First().Establishments)</th>
         </tr>
-        
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                @foreach (var Estab in item.Establishments)
+                {
+                    <td>
+                        @Estab.Name
+                    </td>
+                }
+            </tr>
+        }
     </table>
-
-
-
+</div>
