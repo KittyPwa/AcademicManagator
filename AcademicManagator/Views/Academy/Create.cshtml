@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿@model ICollection<AcademyModel>
+=======
+﻿@model IEnumerable<AcademyModel>
+>>>>>>> 828dc03eb6a27d3030a46f283488964eb9e854db
 
 @{
     ViewBag.Title = "Create";
@@ -9,9 +13,34 @@
         <tr>
             <th>@Html.LabelFor(model => model.First().Id)</th>
             <th>@Html.LabelFor(model => model.First().Name)</th>
+<<<<<<< HEAD
         </tr>
         
     </table>
 
 
 
+=======
+            <th>@Html.LabelFor(model => model.First().Establishments)</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                @foreach (var Estab in item.Establishments)
+                {
+                    <td>
+                        @Estab.Name
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+>>>>>>> 828dc03eb6a27d3030a46f283488964eb9e854db
