@@ -1,3 +1,6 @@
+*.dll
+*.csproj
+*.sln
 *.ide
 .vs/*
 package/*
