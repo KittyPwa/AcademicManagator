@@ -37,5 +37,7 @@ namespace AcademicManagator.Models
         public virtual DbSet<Tutors> Tutors { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Years> Years { get; set; }
+
+        public System.Data.Entity.DbSet<AcademicManagator.Models.ClassroomModel> ClassroomModels { get; set; }
     }
 }

@@ -150,10 +150,23 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClassroomController.cs" />
+    <Compile Include="Models\ClassroomRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\YearModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\TutorModel.cs" />
+    <Compile Include="Models\ResultModel.cs" />
+    <Compile Include="Models\PupilModel.cs" />
+    <Compile Include="Models\PeriodModel.cs" />
+    <Compile Include="Models\LevelModel.cs" />
+    <Compile Include="Models\EvaluationModel.cs" />
+    <Compile Include="Models\CycleModel.cs" />
+    <Compile Include="Models\EstablishmentModel.cs" />
+    <Compile Include="Models\ClassroomModel.cs" />
     <Compile Include="Models\Academies.cs">
       <DependentUpon>ApplicationModel.tt</DependentUpon>
     </Compile>
@@ -173,6 +186,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ApplicationModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AcademyModel.cs" />
     <Compile Include="Models\Classrooms.cs">
       <DependentUpon>ApplicationModel.tt</DependentUpon>
     </Compile>
@@ -263,6 +277,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Classroom\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
