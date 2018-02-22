@@ -9,9 +9,9 @@ namespace AcademicManagator.Models
 
     public class ClassroomRepository
     {
-        private ClassroomEntities entities;
+        private AcademyEntities entities;
 
-        public ClassroomRepository(ClassroomEntities e)
+        public ClassroomRepository(AcademyEntities e)
         {
             entities = e;
         }

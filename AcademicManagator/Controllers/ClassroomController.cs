@@ -11,14 +11,17 @@ namespace AcademicManagator.Controllers
         // GET: Classroom
         public ActionResult Index()
         {
-            ClassroomRepository sr = new ClassroomRepository(new Entities());
-            var result = sr.All()
-                .Select(sim => new Models.ClassroomModel
-                {
+            Models.ClassroomRepository sr = new Models.ClassroomRepository(new Models.AcademyEntities());
+                 var result = sr.All()
+                     .Select(sim => new Models.ClassroomModel
+                     {
 
 
-                }).ToList<Models.ClassroomModel>();
-            return View("Index", result);
+                     }).ToList<Models.ClassroomModel>();
+                 return View("Index", result);
+          /*  var result = new List<Models.ClassroomModel>();
+            result.Add(new Models.ClassroomModel());
+            return View("Index", result);*/
         }
     }
 }
