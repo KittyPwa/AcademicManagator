@@ -86,6 +86,24 @@ namespace AcademicManagator.Controllers
             return View("Failure", model);
         }
 
+        [HttpGet]
+        public ActionResult Delete(Guid id)
+        {
+            AcademyRepository ar = new AcademyRepository(new AcademyEntities());
+            try
+            {
+                ar.Delete(id.ToString());
+                return View("Success");
+            } catch(Exception e)
+            {
+                return View("Failure");
+            }
+                       
+            
+        }
+
+        //TOOLBOX
+
         private List<Establishments> getEstablishments()
         {
             AcademyRepository ar = new AcademyRepository(new AcademyEntities());
