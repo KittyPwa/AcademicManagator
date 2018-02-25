@@ -39,8 +39,7 @@ namespace AcademicManagator.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ViewData["terms"] = getEstablishments();
-                return View(model);
+                return View("Failure", model);
             }
             AcademyRepository sr = new AcademyRepository(new AcademyEntities());
             sr.Add(new Academies
@@ -50,7 +49,7 @@ namespace AcademicManagator.Controllers
                 Establishments = (ICollection<Establishments>)model.Establishments.AsEnumerable()
             });
 
-            return View("Details", model); ;
+            return View("Success", model);
         }
 
         [HttpGet]
