@@ -4,20 +4,42 @@
     ViewBag.Title = "Details";
 }
 
-<div>
-            @Html.LabelFor(model => model.Id)
-            @Html.LabelFor(model => model.Name)
-            
-    <table>
-        <th>
-            @Html.LabelFor(model => model.Establishments)
-        </th>
+@{Html.BeginForm("Details", "Academy", FormMethod.Post);}
+@Html.HiddenFor(model => model.Establishments)
 
-        @foreach (var establishment in Model.Establishments)
-        {
+<div>
+    <table>
+        <tr>
+            <th>
+                @Html.LabelFor(model => model.Id)
+            </th>
+            <th>
+                @Html.LabelFor(model => model.Name)
+            </th>
+            <th>
+                @Html.LabelFor(model => model.Establishments)
+            </th>
+        </tr>
+        <tr>
             <td>
-                @establishment.Name
+                @Html.DisplayFor(model => model.Id)
             </td>
-        }
+            <td>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "")
+            </td>
+            @foreach (var establishment in Model.Establishments)
+            {
+                <td>
+                    @Html.HiddenFor(model => establishment)
+                    @Html.EditorFor(modelItem => establishment.Name)
+                    @Html.ValidationMessageFor(motelItem => establishment.Name, "")
+                </td>
+            }
+        </tr>
     </table>
+    <button type="submit">Soumettre</button>
 </div>
+@{Html.EndForm();}
+
+@Html.ActionLink("Back to List", "Index")

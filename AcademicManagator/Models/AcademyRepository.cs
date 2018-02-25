@@ -20,9 +20,9 @@ namespace AcademicManagator.Models
             return entities.Academies;
         }
 
-        public Academies GetById(int id)
+        public Academies GetById(String id)
         {
-            return All().FirstOrDefault(o => o.Id.ToString() == id.ToString());
+            return All().FirstOrDefault(o => o.Id.ToString() == id);
         }
 
         public IEnumerable<Academies> AllByName(String name)
@@ -36,9 +36,9 @@ namespace AcademicManagator.Models
             Save();
         }
 
-        public void Delete(Academies s)
+        public void Delete(string id)
         {
-            entities.Academies.Remove(s);
+            entities.Academies.Remove(GetById(id));
             Save();
         }
 

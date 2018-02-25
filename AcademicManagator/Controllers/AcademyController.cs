@@ -21,14 +21,14 @@ namespace AcademicManagator.Controllers
                     Establishments = (ICollection<Establishments>)acad.Establishments
 
                 }).ToList<AcademyModel>();
-            return View("Index",result);
+            return View("Index", result);
         }
 
         public ActionResult Create()
         {
-           
+
             ViewData["terms"] = getEstablishments();
-            return View("Create",new AcademyModel
+            return View("Create", new AcademyModel
             {
                 Id = Guid.NewGuid()
             });
@@ -49,8 +49,41 @@ namespace AcademicManagator.Controllers
                 Name = model.Name,
                 Establishments = (ICollection<Establishments>)model.Establishments.AsEnumerable()
             });
-        
+
             return View("Details", model); ;
+        }
+
+        [HttpGet]
+        public ActionResult Details(Guid id)
+        {
+            AcademyRepository ar = new AcademyRepository(new AcademyEntities());
+            Academies acad = ar.GetById(id.ToString());
+            var result = new AcademyModel
+            {
+                Id = acad.Id,
+                Name = acad.Name,
+                Establishments = (ICollection<Establishments>)acad.Establishments
+
+            };
+            return View("Details", result);
+        }
+
+        [HttpPost]
+        public ActionResult Details(AcademyModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                AcademyRepository sr = new AcademyRepository(new AcademyEntities());
+                sr.Delete(model.Id.ToString());
+                sr.Add(new Academies
+                {
+                    Id = model.Id,
+                    Name = model.Name,
+                    Establishments = (ICollection<Establishments>)model.Establishments.AsEnumerable()
+                });
+                return View("Success", model);
+            }
+            return View("Failure", model);
         }
 
         private List<Establishments> getEstablishments()

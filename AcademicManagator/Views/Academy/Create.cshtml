@@ -14,11 +14,20 @@
     @Html.TextBoxFor(m => m.Name)
     @Html.ValidationMessageFor(m => m.Name)
 </p>
+
 <p>Select your Establishments</p>
 <!--non fonctionel -> la donnée ne se fait pas récupérer dans Model.Establishments... Faire une fonction JS pour récupérer Id et assigner le bon Establishment?-->
 @Html.ListBoxFor(Model => Model.Establishments, new MultiSelectList((List<Establishments>)ViewData["terms"], "Id", "Name"), new { style = "width: 300px;" })
 
-@Html.ActionLink("Back to List", "Index")
+@{
+    string selectedTerms = Request["terms"];
+    if (selectedTerms == null)
+    {
+        selectedTerms = "";
+    }
+}
 
 <button type="submit">Soumettre</button>
 @{Html.EndForm();}
+
+@Html.ActionLink("Back to List", "Index")
