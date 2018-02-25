@@ -1,0 +1,23 @@
+﻿@model AcademyModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+            @Html.LabelFor(model => model.Id)
+            @Html.LabelFor(model => model.Name)
+            
+    <table>
+        <th>
+            @Html.LabelFor(model => model.Establishments)
+        </th>
+
+        @foreach (var establishment in Model.Establishments)
+        {
+            <td>
+                @establishment.Name
+            </td>
+        }
+    </table>
+</div>

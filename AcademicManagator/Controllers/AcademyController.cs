@@ -26,6 +26,8 @@ namespace AcademicManagator.Controllers
 
         public ActionResult Create()
         {
+           
+            ViewData["terms"] = getEstablishments();
             return View("Create",new AcademyModel
             {
                 Id = Guid.NewGuid()
@@ -37,6 +39,7 @@ namespace AcademicManagator.Controllers
         {
             if (!ModelState.IsValid)
             {
+                ViewData["terms"] = getEstablishments();
                 return View(model);
             }
             AcademyRepository sr = new AcademyRepository(new AcademyEntities());
@@ -46,8 +49,28 @@ namespace AcademicManagator.Controllers
                 Name = model.Name,
                 Establishments = (ICollection<Establishments>)model.Establishments.AsEnumerable()
             });
-            return null;
-            //return View("Index", ToList<model>); ;
+        
+            return View("Details", model); ;
+        }
+
+        private List<Establishments> getEstablishments()
+        {
+            AcademyRepository ar = new AcademyRepository(new AcademyEntities());
+            List<Establishments> establishment = new List<Establishments>();
+            var result = ar.All()
+                .Select(acad => new AcademyModel
+                {
+                    Id = acad.Id,
+                    Name = acad.Name,
+                    Establishments = (ICollection<Establishments>)acad.Establishments
+
+                }).ToList<AcademyModel>();
+            foreach (var item in result)
+            {
+                foreach (var estab in item.Establishments)
+                    establishment.Add(estab);
+            }
+            return establishment;
         }
     }
 }

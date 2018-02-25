@@ -2,29 +2,23 @@
 
 @{Html.BeginForm("Create", "Academy", FormMethod.Post);}
 
-
 @{
     ViewBag.Title = "Create";
 }
-
 <h2>Creation de Formulaire</h2>
-<!--Date et nom-->
 
 @Html.HiddenFor(model => model.Id)
 
-<!--Nom-->
 <p>
     @Html.LabelFor(m => m.Name)
     @Html.TextBoxFor(m => m.Name)
     @Html.ValidationMessageFor(m => m.Name)
 </p>
+<p>Select your Establishments</p>
+<!--non fonctionel -> la donnée ne se fait pas récupérer dans Model.Establishments... Faire une fonction JS pour récupérer Id et assigner le bon Establishment?-->
+@Html.ListBoxFor(Model => Model.Establishments, new MultiSelectList((List<Establishments>)ViewData["terms"], "Id", "Name"), new { style = "width: 300px;" })
 
-<p>
-    @Html.LabelFor(m => m.Establishments)
-    @Html.TextBoxFor(m => m.Establishments)
-    @Html.ValidationMessageFor(m => m.Establishments)
-</p>
+@Html.ActionLink("Back to List", "Index")
 
 <button type="submit">Soumettre</button>
-
 @{Html.EndForm();}
