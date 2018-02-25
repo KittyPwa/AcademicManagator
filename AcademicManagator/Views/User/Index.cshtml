@@ -1,0 +1,67 @@
+﻿@model IEnumerable<UserModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <table>
+        <tr>
+            <th>@Html.LabelFor(model => model.First().Id)</th>
+            <th>@Html.LabelFor(model => model.First().UserName)</th>
+            <th>@Html.LabelFor(model => model.First().Password)</th>
+            <th>@Html.LabelFor(model => model.First().FirstName)</th>
+            <th>@Html.LabelFor(model => model.First().LastName)</th>
+            <th>@Html.LabelFor(model => model.First().Mail)</th>
+            <th>@Html.LabelFor(model => model.First().Classrooms)</th>
+            <th>@Html.LabelFor(model => model.First().Establishments)</th>
+            <th>@Html.LabelFor(model => model.First().Evaluations)</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                   XXXXXXX
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Classrooms)
+                </td>
+
+                @foreach (var Estab in item.Classrooms)
+                {
+                    <td>
+                        <!--linkText, actionName, controllerName, routeValues, htmlAttributes -> le null en fait est nécessaire-->
+                        @Html.ActionLink(Estab.Title, "Details", "Titre", new { id = item.Id }, null)
+                    </td>
+                }
+                @foreach (var Estab in item.Establishments)
+                {
+                    <td>
+                        <!--linkText, actionName, controllerName, routeValues, htmlAttributes -> le null en fait est nécessaire-->
+                        @Html.ActionLink(Estab.Name, "Details", "Nom", new { id = item.Id }, null)
+                    </td>
+                }
+                <td>
+                    @Html.ActionLink("Edit", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "return confirm('Are you sure you wish to delete this Academy?');" })
+                </td>
+            </tr>
+        }
+    </table>
+    @Html.ActionLink("Create new User", "Create")
+</div>

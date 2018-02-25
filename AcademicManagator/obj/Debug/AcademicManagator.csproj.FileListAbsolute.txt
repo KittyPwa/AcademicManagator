@@ -160,3 +160,4 @@ C:\Users\Kitty Pawa\source\repos\AcademicManagator\AcademicManagator\AcademicMan
 C:\Users\Kitty Pawa\source\repos\AcademicManagator\AcademicManagator\AcademicManagator\obj\Debug\AcademicManagator.csproj.CoreCompileInputs.cache
 C:\Users\Kitty Pawa\source\repos\AcademicManagator\AcademicManagator\AcademicManagator\obj\Debug\AcademicManagator.dll
 C:\Users\Kitty Pawa\source\repos\AcademicManagator\AcademicManagator\AcademicManagator\obj\Debug\AcademicManagator.pdb
+C:\Users\Auchan\Desktop\Projet dotnet\AcademicManagator\AcademicManagator\bin\fr\EntityFramework.SqlServer.resources.dll

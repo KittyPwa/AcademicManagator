@@ -39,5 +39,9 @@ namespace AcademicManagator.Models
         public virtual DbSet<Years> Years { get; set; }
 
         public System.Data.Entity.DbSet<AcademicManagator.Models.ClassroomModel> ClassroomModels { get; set; }
+
+        public System.Data.Entity.DbSet<AcademicManagator.Models.UserModel> UserModels { get; set; }
+
+        public System.Data.Entity.DbSet<AcademicManagator.Models.EvaluationModel> EvaluationModels { get; set; }
     }
 }

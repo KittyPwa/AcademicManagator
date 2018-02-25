@@ -93,7 +93,7 @@ namespace AcademicManagator.Controllers
             {
                 ar.Delete(id.ToString());
                 return View("Success");
-            } catch(Exception e)
+            } catch(Exception )
             {
                 return View("Failure");
             }

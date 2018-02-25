@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AcademicManagator.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,17 +12,24 @@ namespace AcademicManagator.Controllers
         // GET: Classroom
         public ActionResult Index()
         {
-            Models.ClassroomRepository sr = new Models.ClassroomRepository(new Models.AcademyEntities());
-                 var result = sr.All()
-                     .Select(sim => new Models.ClassroomModel
-                     {
+            ClassroomRepository ar = new ClassroomRepository(new AcademyEntities());
+            var result = ar.All()
+                .Select(acad => new ClassroomModel
+                {
+                    Id = acad.Id,
+                    Establishment_Id = acad.Establishment_Id,
+                    Evaluations = acad.Evaluations,
+                    Pupils = (ICollection<Pupils>)acad.Pupils,
+                    Title = acad.Title,
+                    Users = acad.Users,
+                    User_Id = acad.User_Id,
+                    Years = acad.Years,
+                    Year_Id = acad.Year_Id
 
 
-                     }).ToList<Models.ClassroomModel>();
-                 return View("Index", result);
-          /*  var result = new List<Models.ClassroomModel>();
-            result.Add(new Models.ClassroomModel());
-            return View("Index", result);*/
+                }).ToList<ClassroomModel>();
+            return View("Index", result);
         }
+
     }
 }
